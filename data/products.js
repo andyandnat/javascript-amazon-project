@@ -660,7 +660,7 @@ const products = [
   {
     id: "id1",
     image: "images/products/backpack.jpg",
-    name: "Backpack",
+    name: "Black Backpack",
     rating: {
       stars: 4.5,
       count: 200
