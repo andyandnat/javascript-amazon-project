@@ -1,4 +1,4 @@
-import {cart} from '../data/cart.js';
+import {cart, addToCart} from '../data/cart.js';
 import {products} from '../data/products.js';
 
 let productsHTML = '';
@@ -59,74 +59,22 @@ products.forEach((product) => {
 
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
-//We're going to use an object to save the timeout ids.
-// The reson we use an object is because each product
-// will have its own timeoutId. so an object lets us
-// save multiple timeout ids for differewnt products.
-// For example:
-//{
-//    'product-id1': 2,
-//    'product-id2': 5,
-//    ...
-//}
-//(2 and 5 are ids that are returned when we call setTimeout).
-const addedMessageTimeouts = {};
+function updateCartQuantity() {
+  let cartQuantity = 0;
+
+  cart.forEach((cartItem) => {
+    cartQuantity += cartItem.quantity;
+  });
+      
+  document.querySelector('.js-cart-quantity')
+    .innerHTML = cartQuantity;
+}
 
 document.querySelectorAll('.js-add-to-cart')
   .forEach((button) => {
     button.addEventListener('click', () => {
-      const {productId} = button.dataset;
-
-      let matchingItem;
-
-      cart.forEach((item) => {
-        if (productId === item.productId) {
-          matchingItem = item;
-        }
-      });
-
-      const quantitySelector = document.querySelector(
-        `.js-quantity-selector-${productId}`
-      );
-      const quantity = Number(quantitySelector.value);
-
-      if (matchingItem) {
-        matchingItem.quantity += quantity;
-      } else {
-        cart.push({
-          productId,
-          quantity
-        });
-      }
-
-      let cartQuantity = 0;
-
-      cart.forEach((item) => {
-        cartQuantity += item.quantity;
-      });
-      
-      document.querySelector('.js-cart-quantity')
-        .innerHTML = cartQuantity;
-
-      const addedMessage = document.querySelector(
-        `.js-added-to-cart-${productId}`
-      );
-
-      addedMessage.classList.add('added-to-cart-visible');
-
-      // Check if there 's a previous timeout for this
-      // product. If there is, we should stop it.
-      const previousTimeoutId = addedMessageTimeouts[productId];
-      if (previousTimeoutId) {
-        clearTimeout(previousTimeoutId);
-      }
-
-      const timeoutId = setTimeout(() => {
-        addedMessage.classList.remove('added-to-cart-visible');
-      }, 2000);
-
-      // Savew the timeoutId for this product
-      // so we can stop it later if we need to.
-      addedMessageTimeouts[poroductsId] = timeoutId;
+      const productId = button.dataset.productId;
+      addToCart(productId);
+      updateCartQuantity();
     });
   });
