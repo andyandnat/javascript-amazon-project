@@ -6,7 +6,7 @@ export let cart = [{
   quantity: 1
 }];
 
-export function addToCart(productId) {
+export function addToCart(productId, quantity) {
   let matchingItem;
 
   cart.forEach((cartItem) => {
@@ -29,7 +29,7 @@ export function removeFromCart(productId) {
   const newCart = [];
 
   cart.forEach((cartItem) => {
-    if (cartItem.productId !== productId) {
+    if (productId !== cartItem.productId) {
       newCart.push(cartItem);
     }
   })
