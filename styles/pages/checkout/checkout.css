@@ -26,6 +26,7 @@
      up the remaining space in the grid. */
   grid-template-columns: 1fr 350px;
   column-gap: 12px;
+  align-items: start;
 
   /* Use align-items: start; to prevent the elements
      in the grid from stretching vertically. */
