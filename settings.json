@@ -1,16 +1,23 @@
 {
-    "git.enabled": true,
-    "git.path": "/opt/homebrew/bin/git",
-    "liveServer.settings.CustomBrowser": "chrome",
-    "editor.tabSize": 2,
-    "editor.wordWrap": "on",
-    "liveServer.settings.donotShowInfoMsg": true,
-    "git.suggestSmartCommit": false,
-    "git.autofetch": true,
-    "diffEditor.renderSideBySide": true,
-    "diffEditor.useInlineViewWhenSpaceIsLimited": false,
-    "workbench.editor.empty.hint": "hidden",
-    "search.useGlobalIgnoreFiles": true,
-    "search.useParentIgnoreFiles": true,
-    "githubPullRequests.experimental.useQuickChat": true
-} 
+  "git.enabled": true,
+  "git.path": "/opt/homebrew/bin/git",
+  "liveServer.settings.CustomBrowser": "chrome",
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "liveServer.settings.donotShowInfoMsg": true,
+  "git.suggestSmartCommit": false,
+  "git.autofetch": true,
+  "diffEditor.renderSideBySide": true,
+  "diffEditor.useInlineViewWhenSpaceIsLimited": false,
+  "workbench.editor.empty.hint": "hidden",
+  "search.useGlobalIgnoreFiles": true,
+  "search.useParentIgnoreFiles": true,
+  "githubPullRequests.experimental.useQuickChat": true,
+  "git.confirmSync": false,
+  "editor.renderControlCharacters": false,
+  "editor.renderWhitespace": "none",
+  "editor.selectionHighlight": false,
+  "editor.occurrencesHighlight": false,
+  "editor.semanticHighlighting.enabled": false
+  
+}
