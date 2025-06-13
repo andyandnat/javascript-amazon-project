@@ -66,16 +66,7 @@ export function updateDeliveryOption(productId, deliveryOptionId) {
   saveToStorage();
 }
 
-export function calculateCartQuantity() {
-  let cartQuantity = 0;
-
-  cart.forEach((cartItem) => {
-    cartQuantity += cartItem.quantity;
-  });
-
-  return cartQuantity;
-}
-
+// This code was copied from the solutions of exercises 14f - 14n.
 export function updateQuantity(productId, newQuantity) {
   let matchingItem;
 
